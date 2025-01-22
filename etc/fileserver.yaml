@@ -1,0 +1,8 @@
+Name: fileserver1.rpc
+ListenOn: 127.0.0.1:8001
+Timeout: 300000
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: fileserver1.rpc
+  Timeout: 300000

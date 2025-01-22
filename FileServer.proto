@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package XcXcPanFileServer;
+option go_package = "/XcXcPanFileServer";
+
+service XcXcPanFileService {
+  rpc UploadChunk(UploadChunkRequest) returns (UploadChunkResponse);
+  rpc DelChunk(DelChunkRequest) returns (DelChunkResponse);
+  rpc DownloadChunk(DownloadChunkRequest) returns (DownloadChunkResponse);
+}
+
+
+message DownloadChunkRequest{
+  string chunkId = 1;
+}
+
+message DownloadChunkResponse {
+  bool success = 2;
+  bytes data = 1;
+}
+
+message DelChunkRequest {
+  string chunkId = 1;
+}
+
+message DelChunkResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message UploadChunkRequest {
+  string chunkId = 1;
+  bytes data = 2;
+}
+message UploadChunkResponse {
+  bool success = 1;
+  string message = 2;
+}
